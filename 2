@@ -1,0 +1,20 @@
+uint16_t duty_num3 = 10;
+uint16_t duty_num4 = 10;
+
+	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
+
+HAL_Delay(50);
+		duty_num3 = duty_num3 + 10;
+			duty_num4 = duty_num4 + 10;
+		if(duty_num3 > 500)
+		{
+			duty_num3 = 0;
+		}
+		__HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,duty_num3);
+			if(duty_num4 > 500)
+		{
+			duty_num4 = 0;
+		}
+		__HAL_TIM_SetCompare(&htim4,TIM_CHANNEL_1,duty_num4);
+
